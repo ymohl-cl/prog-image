@@ -1,8 +1,6 @@
 package main
 
 import (
-	"net/http"
-
 	mgo "gopkg.in/mgo.v2"
 
 	"github.com/labstack/echo"
@@ -10,9 +8,6 @@ import (
 )
 
 func defineRouting(e *echo.Echo, i *image.Image) {
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, WORLD by get")
-	})
 	e.GET("/image", i.GetImage)
 	e.POST("/image", i.UploadImage)
 }
