@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    prog-image:
+        image: debian
+        volumes:
+            - ".:/bin"
+        command: /bin/prog-image
+        links:
+            - mongo:mongo
+        ports:
+            - 8000:8000
+    mongo:
+        image: mongo:latest
